@@ -9,7 +9,7 @@ $(document).ready(function(){
 				if(data.status){
 					$('.result').html('Success!');
 				} else{
-					$('.result').html(data.word);
+					$('.result').html(data.captcha);
 					var url = base_url + "captcha/generate_captcha/";
 					$.ajax({
 						url: url,

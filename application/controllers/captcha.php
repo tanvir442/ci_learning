@@ -2,8 +2,7 @@
 
 class Captcha extends CI_Controller {
 
-	public function index()
-	{
+	public function index(){
 		$captcha = $this->set_up_captcha();
 		$data['image'] = $captcha['image'];
 		$this->session->set_userdata('captcha', $captcha['word']);
@@ -14,7 +13,6 @@ class Captcha extends CI_Controller {
 		$data = array('captcha' => NULL, 'status' => NULL);
 		
 		$this->load->library('form_validation');
-		
 		$this->form_validation->set_rules('captcha','Captcha','required');
 		
 		if($this->form_validation->run() === FALSE){
@@ -44,8 +42,8 @@ class Captcha extends CI_Controller {
 			'font_path'  => './assets/fonts/verdana.ttf',
 			'expiration' => 3600
 		);
-		$cap = create_captcha($vals);
-		return $cap;
+		$captcha = create_captcha($vals);
+		return $captcha;
 	}
 	
 	public function generate_captcha(){
@@ -59,12 +57,9 @@ class Captcha extends CI_Controller {
 	
 	public function generate_random_keyword(){
 		$chars = array(
-			'a', 'b', 'c', 'd', 
-			'e', 'f', 'g', 'h', 
-			'i', 'j', 'k', 'l', 
-			'm', 'n', 'o', 'p',
-			'q', 'r', 's', 't', 
-			'u', 'v', 'w', 'x',
+			'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 
+			'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+			'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
 			'y', 'z'
 		);
 		$symbols = array('$', '&', '+', '<', '>', '?', '!');

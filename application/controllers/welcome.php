@@ -6,8 +6,7 @@ class Welcome extends CI_Controller {
 	{
 		$u = new User();
 		$list = $u->get()->all_to_array();
-		//$this->load->library('firephp');
-		//$this->firephp->log($list);
+		
 		$this->load->view('welcome_message');
 	}
 }
